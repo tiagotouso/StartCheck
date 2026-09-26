@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "prepublishOnly": "npm run build && npm test",
     "start": "node bin/startcheck.js",
     "test": "vitest run"

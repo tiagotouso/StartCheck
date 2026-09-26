@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
-const path = require("path");
+const fs = require("fs");
 
-// Carregar o CLI compilado ou registrar ts-node se em desenvolvimento
-try {
-  const { runCli } = require("../dist/cli/index.js");
+const distCliPath = path.join(__dirname, "../dist/cli/index.js");
+
+if (fs.existsSync(distCliPath)) {
+  const { runCli } = require(distCliPath);
   runCli().catch((err) => {
     console.error("Erro fatal na execução do StartCheck:", err);
     process.exit(1);
   });
-} catch (e) {
+} else {
   // Fallback para execução direta em TypeScript se ts-node estiver disponível
   try {
     require("ts-node/register");
