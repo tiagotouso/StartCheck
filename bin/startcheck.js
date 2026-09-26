@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const path = require("path");
 const fs = require("fs");
 
 const distCliPath = path.join(__dirname, "../dist/cli/index.js");
