@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glossário de Conceitos — StartCheck Docs</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs</div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html" class="active">Glossário</a>
+      <a href="deck.html">Deck</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-cyan">Onboarding & Conceitos</span>
+      <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">Glossário de Termos do StartCheck</h1>
+      <p style="color: var(--text-muted);">Conceitos fundamentais da metodologia de modelagem e arquitetura de agentes.</p>
+    </div>
+
+    <div style="margin-bottom: 2rem;">
+      <input type="text" id="search-input" placeholder="🔍 Buscar conceito ou palavra-chave..." 
+             style="width: 100%; max-width: 500px; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: #fff; font-size: 1rem; outline: none;">
+    </div>
+
+    <div id="glossary-grid" class="card-grid" style="margin-top: 1rem;">
+      <!-- Cards preenchidos via JavaScript inline sem fetch -->
+    </div>
+  </main>
+
+  <script>
+    const grid = document.getElementById("glossary-grid");
+    const input = document.getElementById("search-input");
+
+    function renderCards(filter = "") {
+      grid.innerHTML = "";
+      if (window.RV_DATA && window.RV_DATA.glossary) {
+        const filtered = window.RV_DATA.glossary.filter(item => 
+          item.term.toLowerCase().includes(filter.toLowerCase()) ||
+          item.definition.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        if (filtered.length === 0) {
+          grid.innerHTML = "<p style='color: var(--text-muted);'>Nenhum conceito encontrado para a busca.</p>";
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.id = `concept-${item.slug}`;
+          card.innerHTML = `
+            <span class="badge badge-cyan">CONCEITO</span>
+            <h3 style="margin-top: 0.8rem;">${item.term}</h3>
+            <p>${item.definition}</p>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    input.addEventListener("input", (e) => {
+      renderCards(e.target.value);
+    });
+
+    renderCards();
+  </script>
+
+  <footer class="footer">
+    <p>StartCheck Docs — Documentação viva gerada pelo Reversa Docs</p>
+  </footer>
+</body>
+</html>

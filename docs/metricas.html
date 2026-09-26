@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métricas e Indicadores — StartCheck Docs</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs</div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="metricas.html" class="active">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+      <a href="deck.html">Deck</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-cyan">Dados Quantitativos</span>
+      <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">Dashboard de Métricas & Saúde do Código</h1>
+      <p style="color: var(--text-muted);">Estatísticas consolidadas de maturidade de engenharia, complexidade e cobertura de templates.</p>
+    </div>
+
+    <!-- KPIs -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+      <div class="card" style="padding: 1.2rem; text-align: center;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Linhas de Código</span>
+        <h2 style="font-size: 2rem; color: var(--accent-cyan); margin: 0.3rem 0;">1.300+</h2>
+        <span style="font-size: 0.8rem; color: var(--green);">TypeScript 100% estrito</span>
+      </div>
+
+      <div class="card" style="padding: 1.2rem; text-align: center;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Templates Canônicos</span>
+        <h2 style="font-size: 2rem; color: #fff; margin: 0.3rem 0;">15</h2>
+        <span style="font-size: 0.8rem; color: var(--green);">Modelos Markdown (001-015)</span>
+      </div>
+
+      <div class="card" style="padding: 1.2rem; text-align: center;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Score Médio SDD</span>
+        <h2 style="font-size: 2rem; color: var(--green); margin: 0.3rem 0;">99.2 / 100</h2>
+        <span style="font-size: 0.8rem; color: var(--green);">5 specs nota 100, 1 nota 95</span>
+      </div>
+
+      <div class="card" style="padding: 1.2rem; text-align: center;">
+        <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Ações do Plano (To-Do)</span>
+        <h2 style="font-size: 2rem; color: var(--accent-blue); margin: 0.3rem 0;">14 / 14</h2>
+        <span style="font-size: 0.8rem; color: var(--green);">100% implementadas</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 1.5rem;">
+      <!-- Volume de Código por Módulo -->
+      <div class="card">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 1.2rem;">Distribuição de LOC por Módulo</h3>
+        <div id="chart-loc" style="display: flex; flex-direction: column; gap: 0.8rem;">
+          <!-- Barras geradas dinamicamente -->
+        </div>
+      </div>
+
+      <!-- Cobertura de Templates por Grupo -->
+      <div class="card">
+        <h3 style="color: var(--accent-cyan); margin-bottom: 1.2rem;">Distribuição dos 15 Templates por Grupo</h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+              <span>Strategy (006 a 010)</span>
+              <strong>5 templates (33.4%)</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; overflow: hidden;">
+              <div style="background: var(--accent-cyan); width: 33.4%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+              <span>Validation (003 a 005)</span>
+              <strong>3 templates (20.0%)</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; overflow: hidden;">
+              <div style="background: var(--accent-blue); width: 20%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+              <span>Pitch (013 a 015)</span>
+              <strong>3 templates (20.0%)</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; overflow: hidden;">
+              <div style="background: var(--yellow); width: 20%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+              <span>Idea (001 e 002)</span>
+              <strong>2 templates (13.3%)</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; overflow: hidden;">
+              <div style="background: var(--green); width: 13.3%; height: 100%;"></div>
+            </div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+              <span>Execution (011 e 012)</span>
+              <strong>2 templates (13.3%)</strong>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); height: 10px; border-radius: 5px; overflow: hidden;">
+              <div style="background: #a855f7; width: 13.3%; height: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const locContainer = document.getElementById("chart-loc");
+    if (window.RV_DATA && window.RV_DATA.modules) {
+      const maxLoc = Math.max(...window.RV_DATA.modules.map(m => m.loc));
+      window.RV_DATA.modules.forEach(m => {
+        const pct = Math.round((m.loc / maxLoc) * 100);
+        const item = document.createElement("div");
+        item.innerHTML = `
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.25rem;">
+            <span>${m.name}</span>
+            <span style="color: var(--text-muted); font-family: monospace;">${m.loc} LOC</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.05); height: 8px; border-radius: 4px; overflow: hidden;">
+            <div style="background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); width: ${pct}%; height: 100%;"></div>
+          </div>
+        `;
+        locContainer.appendChild(item);
+      });
+    }
+  </script>
+
+  <footer class="footer">
+    <p>StartCheck Docs — Documentação viva gerada pelo Reversa Docs</p>
+  </footer>
+</body>
+</html>

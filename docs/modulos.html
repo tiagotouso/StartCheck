@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulos e Dependências — StartCheck Docs</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs</div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html" class="active">Módulos</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+      <a href="deck.html">Deck</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-cyan">Mapa Estrutural</span>
+      <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">Mapeamento de Módulos e Dependências</h1>
+      <p style="color: var(--text-muted);">Inventário de código TypeScript, volume de linhas e interações entre subsistemas.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 2rem; overflow-x: auto;">
+      <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">Tabela de Módulos do StartCheck</h3>
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border-color); color: var(--text-muted);">
+            <th style="padding: 0.75rem;">Módulo</th>
+            <th style="padding: 0.75rem;">Caminho</th>
+            <th style="padding: 0.75rem;">Grupo</th>
+            <th style="padding: 0.75rem;">LOC Estimado</th>
+            <th style="padding: 0.75rem;">Complexidade</th>
+          </tr>
+        </thead>
+        <tbody id="modules-table-body">
+          <!-- Inserido dinamicamente via data.js -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="background: rgba(18, 24, 38, 0.9);">
+      <h3 style="margin-bottom: 1rem; color: #fff;">Matriz de Relacionamento entre Subsistemas</h3>
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 6px;">
+          <strong>CLI Installer</strong> ➔ <em>Harness Orchestrator, Template Engine, Extension Factory, Export Service</em>
+        </div>
+        <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 6px;">
+          <strong>Harness Orchestrator</strong> ➔ <em>Template Engine, Traffic Light Evaluator, Startup Skills</em>
+        </div>
+        <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 6px;">
+          <strong>Extension Factory</strong> ➔ <em>Template Engine</em> (adiciona novos modelos dinâmicos)
+        </div>
+        <div style="padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 6px;">
+          <strong>Export Service</strong> ➔ <em>Template Engine</em> (lê markdowns da startup para compilar DOCX/XLSX)
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const tbody = document.getElementById("modules-table-body");
+    if (window.RV_DATA && window.RV_DATA.modules) {
+      window.RV_DATA.modules.forEach(m => {
+        const tr = document.createElement("tr");
+        tr.style.borderBottom = "1px solid rgba(255,255,255,0.05)";
+        tr.innerHTML = `
+          <td style="padding: 0.75rem; font-weight: 600; color: #fff;">${m.name}</td>
+          <td style="padding: 0.75rem; color: var(--accent-cyan); font-family: monospace;">${m.path}</td>
+          <td style="padding: 0.75rem;"><span class="badge badge-cyan">${m.group}</span></td>
+          <td style="padding: 0.75rem;">${m.loc} linhas</td>
+          <td style="padding: 0.75rem;">${m.complexity} / 10</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+
+  <footer class="footer">
+    <p>StartCheck Docs — Documentação viva gerada pelo Reversa Docs</p>
+  </footer>
+</body>
+</html>

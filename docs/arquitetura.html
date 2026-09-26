@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitetura do Sistema — StartCheck Docs</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs</div>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="arquitetura.html" class="active">Arquitetura</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+      <a href="deck.html">Deck</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <span class="badge badge-cyan">Estrutura Espacial</span>
+      <h1 style="font-size: 2.2rem; margin-top: 0.5rem;">Arquitetura dos 6 Componentes Centrais</h1>
+      <p style="color: var(--text-muted);">Visão macroscópica da distribuição física e lógica do StartCheck.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 2rem; background: #0d131f; border-color: rgba(6, 182, 212, 0.3);">
+      <h3 style="color: var(--accent-cyan); margin-bottom: 1rem;">Camadas da Aplicação</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+          <h4>1. Apresentação (CLI)</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;"><code>cli-installer</code> — Menus interativos via @clack/prompts, banners e comandos npx.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--accent-blue);">
+          <h4>2. Orquestração Cognitiva</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;"><code>harness-orchestrator</code> & <code>startup-skills</code> — Gestão de contexto cumulativo e despacho de agentes.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--yellow);">
+          <h4>3. Auditoria de Qualidade</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;"><code>traffic-light-evaluator</code> — Semáforo (🟢/🟡/🔴) e auto-correção via justificativas.</p>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--green);">
+          <h4>4. Compilação & Entrega</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;"><code>template-engine</code> & <code>export-service</code> — I/O Markdown, DOCX individual, Consolidado e XLSX.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card">
+        <span class="badge badge-green">CORE</span>
+        <h3 style="margin-top: 0.8rem;">template-engine</h3>
+        <p>Controla a leitura dos 15 templates essenciais e gerencia a persistência atômica dos documentos da startup em Markdown UTF-8.</p>
+        <a href="features/template-engine.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-cyan">COGNITIVO</span>
+        <h3 style="margin-top: 0.8rem;">harness-orchestrator</h3>
+        <p>Instancia os agentes especialistas associados a cada template e compartilha a memória da startup em tempo real entre etapas.</p>
+        <a href="features/harness-orchestrator.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-yellow">QUALIDADE</span>
+        <h3 style="margin-top: 0.8rem;">traffic-light-evaluator</h3>
+        <p>Aplica crítica analítica às respostas geradas, classificando em Verde, Amarela e Vermelha com auto-correção por justificativa.</p>
+        <a href="features/traffic-light-evaluator.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">EXPORT</span>
+        <h3 style="margin-top: 0.8rem;">export-service</h3>
+        <p>Compila os documentos em DOCX individual, DOCX consolidado (sem pitches), DOCX de pitches e planilha XLSX do plano de ação.</p>
+        <a href="features/export-service.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-cyan">METAGERAÇÃO</span>
+        <h3 style="margin-top: 0.8rem;">extension-factory</h3>
+        <p>Detecta novos arquivos markdown de modelo e compila automaticamente o agente especialista e a skill necessária.</p>
+        <a href="features/extension-factory.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">CLI</span>
+        <h3 style="margin-top: 0.8rem;">cli-installer</h3>
+        <p>Ponto de entrada único via npx startcheck install com interface moderna e menus guiados de criação e revisão.</p>
+        <a href="features/cli-installer.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">Ver especificação SDD →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>StartCheck Docs — Documentação viva gerada pelo Reversa Docs</p>
+  </footer>
+</body>
+</html>

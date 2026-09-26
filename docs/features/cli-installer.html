@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cli-installer — StartCheck Docs</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs</div>
+    <nav class="nav">
+      <a href="../index.html">Início</a>
+      <a href="../arquitetura.html">Arquitetura</a>
+      <a href="../modulos.html">Módulos</a>
+      <a href="../metricas.html">Métricas</a>
+      <a href="../glossario.html">Glossário</a>
+      <a href="../deck.html">Deck</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 2rem;">
+      <a href="../arquitetura.html" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.9rem;">← Voltar para Arquitetura</a>
+      <div style="margin-top: 1rem;">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <span class="badge badge-cyan">CLI</span>
+      </div>
+      <h1 style="font-size: 2.4rem; margin-top: 0.5rem;">cli-installer (CLI Interativo & NPX)</h1>
+      <p style="color: var(--text-muted);">Interface de linha de comando baseada em @clack/prompts para inicialização e controle total de fluxo.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 2rem;">
+      <h3 style="color: var(--accent-cyan);">Visão Geral da Especificação</h3>
+      <p>O <code>cli-installer</code> provê uma experiência de terminal imediata via <code>npx startcheck install</code>. Responsável pela inicialização do ambiente, criação da pasta isolada da startup, e despacho interativo para criação e revisão.</p>
+      
+      <h4 style="color: #fff; margin-top: 1.5rem; margin-bottom: 0.5rem;">Requisitos Funcionais Principais:</h4>
+      <ul style="margin-left: 1.5rem; color: var(--text-muted); line-height: 1.8;">
+        <li><strong>RF-01:</strong> Execução direta via comando NPX sem clone manual.</li>
+        <li><strong>RF-02:</strong> Criação da pasta dedicada da startup com <code>startup.config.json</code>.</li>
+        <li><strong>RF-03:</strong> Menus para criação: um por um, por grupo e todos de uma vez.</li>
+        <li><strong>RF-04:</strong> Menus para revisão: um por um, por grupo e todos com inserção de justificativas.</li>
+        <li><strong>RF-05:</strong> Despacho automatizado do serviço de exportação multiformato.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="background: rgba(18, 24, 38, 0.9);">
+      <h3 style="color: #fff; margin-bottom: 0.8rem;">Exemplo de Invocação</h3>
+      <pre style="background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; color: var(--accent-cyan); overflow-x: auto;"><code># Instalação interativa
+npx startcheck install
+
+# Execução no diretório corrente
+npx startcheck</code></pre>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>StartCheck Docs — Documentação viva gerada pelo Reversa Docs</p>
+  </footer>
+</body>
+</html>

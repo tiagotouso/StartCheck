@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StartCheck — Central de Documentação Técnica & Arquitetura</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .hero {
+      padding: 4rem 2rem 3rem 2rem;
+      background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.15), transparent 60%),
+                  radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.15), transparent 60%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 30%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+    }
+    .quickstart-box {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-family: monospace;
+      color: var(--accent-cyan);
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .grid-hub {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .feature-card {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+    }
+    .stat-pill {
+      font-size: 0.85rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.08);
+      color: #cbd5e1;
+    }
+    .footer-seal {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">🚀 StartCheck Docs Hub</div>
+    <nav class="nav">
+      <a href="index.html" style="color: var(--accent-cyan); font-weight: bold;">Início</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+      <a href="deck.html">Deck Executivo</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div style="margin-bottom: 1rem;">
+        <span class="badge badge-green">SPEC REVERSA 100% VALIDADAS</span>
+        <span class="badge badge-cyan">CLI PRONTO PARA NPX</span>
+      </div>
+      <h1>StartCheck</h1>
+      <p>Ecossistema de Validação e Engenharia de Startups guiado por Inteligência Artificial. 15 Templates canônicos, agentes especialistas dedicados, semáforo cognitivo e auto-correção contínua.</p>
+      
+      <div class="quickstart-box">
+        <span>⚡ npx startcheck install &nbsp;|&nbsp; npx startcheck</span>
+      </div>
+    </section>
+
+    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: #fff; border-left: 4px solid var(--accent-cyan); padding-left: 1rem;">
+      Exploração Técnica do Sistema
+    </h2>
+    
+    <div class="grid-hub">
+      <div class="card feature-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🏛️</span>
+            <span class="stat-pill">Visual Interativo</span>
+          </div>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Arquitetura & Fluxo</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Visão arquitetural completa do sistema, fluxo unificado de dados do CLI aos Agentes e topologia de componentes.</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="arquitetura.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Ver Diagramas e Fluxos →</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🧩</span>
+            <span class="stat-pill">5 Módulos Core</span>
+          </div>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Módulos & Responsabilidades</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Inventário detalhado do Template Engine, Traffic Light, Harness Orchestrator, Extension Factory e Export Service.</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="modulos.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Ver Catálogo de Módulos →</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">📊</span>
+            <span class="stat-pill">Média 99.2/100</span>
+          </div>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Métricas & Qualidade SDD</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Auditoria automatizada das especificações, cobertura de requisitos funcionais, metas de desempenho e testes.</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="metricas.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Ver Painel de Métricas →</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">📖</span>
+            <span class="stat-pill">Linguagem Comum</span>
+          </div>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Glossário de Termos</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Definições conceituais claras de Harness Cognitivo, Semáforo Tríplice, Modelos Canônicos e Meta-Extensibilidade.</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="glossario.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Ver Termos e Definições →</a>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 2rem;">🎯</span>
+            <span class="stat-pill">Apresentação</span>
+          </div>
+          <h3 style="color: #fff; margin-bottom: 0.5rem;">Executive Pitch Deck</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Deck executivo dinâmico para investidores e mentores explicando a tese, dor de mercado, solução e tração.</p>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a href="deck.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Abrir Apresentação →</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #fff; border-left: 4px solid var(--accent-purple); padding-left: 1rem;">
+      Especificações Executáveis (SDD Features)
+    </h2>
+
+    <div class="grid-hub">
+      <div class="card">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/cli-installer.html" style="color: #fff; text-decoration: none;">CLI & Onboarding</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Instalação global/npx, wizard interativo com Clack e menus ergonômicos.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/template-engine.html" style="color: #fff; text-decoration: none;">Template Engine</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Gerenciador dos 15 modelos canônicos (001 a 015) com metadados semânticos.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/harness-orchestrator.html" style="color: #fff; text-decoration: none;">Harness Orchestrator</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Orquestrador cognitivo com memória persistente e encadeamento contextual.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">SCORE 95/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/traffic-light-evaluator.html" style="color: #fff; text-decoration: none;">Traffic Light Evaluator</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Avaliação semafórica (🟢/🟡/🔴) e ciclo de auto-correção via justificativas.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/extension-factory.html" style="color: #fff; text-decoration: none;">Extension Factory</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Meta-extensibilidade para novos templates gerarem agentes e skills automaticamente.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge badge-green">SCORE 100/100</span>
+        <h4 style="margin: 0.8rem 0 0.4rem 0;"><a href="features/export-service.html" style="color: #fff; text-decoration: none;">Export Service</a></h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Exportador para DOCX individual, Consolidado (sem pitches) e XLSX do cronograma.</p>
+      </div>
+    </div>
+
+    <div class="footer-seal">
+      <p>Selo de Compilação Determinística: <code>sha256:7d345107e997f8c02871b69f688006e00ca33cba7c040d3478546b5a3ebc4538</code></p>
+      <p style="margin-top: 0.5rem;">Gerado pelo ecossistema <strong>Reversa Docs</strong> — StartCheck v1.0.0</p>
+    </div>
+  </main>
+</body>
+</html>
