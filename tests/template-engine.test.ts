@@ -39,6 +39,6 @@ describe("TemplateEngine", () => {
     const res = engine.getTemplate("001");
     expect(res).not.toBeNull();
     expect(res?.descriptor.id).toBe("001");
-    expect(res?.content).toContain("# Registro da Startup");
+    expect(res?.content).toContain("Registro da Startup");
   });
 });

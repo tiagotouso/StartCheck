@@ -15,9 +15,18 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build && npm test",
     "start": "node bin/startcheck.js",
     "test": "vitest run"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagotouso/StartCheck.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tiagotouso/StartCheck/issues"
+  },
+  "homepage": "https://github.com/tiagotouso/StartCheck#readme",
   "keywords": [
     "startup",
     "modelagem",
