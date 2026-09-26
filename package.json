@@ -1,0 +1,46 @@
+{
+  "name": "startcheck",
+  "version": "1.0.0",
+  "description": "Sistema Inteligente de Modelagem de Startups baseado em Agentes, Skills e Harness",
+  "main": "dist/cli/index.js",
+  "types": "dist/cli/index.d.ts",
+  "bin": {
+    "startcheck": "./bin/startcheck.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node bin/startcheck.js",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "startup",
+    "modelagem",
+    "canvas",
+    "pitch",
+    "agentes",
+    "skills",
+    "harness",
+    "docx",
+    "xlsx"
+  ],
+  "author": "Tiago",
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^0.8.2",
+    "commander": "^12.1.0",
+    "docx": "^8.5.0",
+    "exceljs": "^4.4.0",
+    "picocolors": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  }
+}
