@@ -5,7 +5,7 @@
   "main": "dist/cli/index.js",
   "types": "dist/cli/index.d.ts",
   "bin": {
-    "startcheck": "./bin/startcheck.js"
+    "startcheck": "bin/startcheck.js"
   },
   "files": [
     "bin",
