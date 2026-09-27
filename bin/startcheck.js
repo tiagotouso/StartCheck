@@ -37,9 +37,10 @@ async function main() {
 ============================================================
 
 Uso:
-  npx startcheck install       Instala os agentes e regras no projeto atual
-  npx startcheck version       Exibe a versão instalada
-  npx startcheck help          Exibe esta ajuda
+  npx startcheck install                                    Instala os agentes e regras no projeto atual
+  npx github https://github.com/tiagotouso/StartCheck       Instala direto via repositório GitHub
+  npx startcheck version                                    Exibe a versão instalada
+  npx startcheck help                                       Exibe esta ajuda
 
 Após a instalação, abra o seu harness de IA favorito:
   - Antigravity: digite /startcheck

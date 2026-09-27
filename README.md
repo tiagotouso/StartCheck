@@ -17,7 +17,7 @@ npx startcheck install
 Ou se preferir instalar diretamente do repositório no GitHub:
 
 ```bash
-npx github:tiagotouso/StartCheck install
+npx github https://github.com/tiagotouso/StartCheck
 ```
 
 O instalador irá:

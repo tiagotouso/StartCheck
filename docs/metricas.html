@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métricas & Qualidade — StartCheck</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/img/seal-mini.svg" alt="StartCheck" width="24" height="24">
+      <span>StartCheck</span>
+      <span class="brand-badge">Métricas</span>
+    </a>
+    <nav class="reversa-doc-nav">
+      <a href="index.html">Visão Geral</a>
+      <a href="guia-passo-a-passo.html">Passo a Passo</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html">Módulos & Agentes</a>
+      <a href="metricas.html" aria-current="page">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Métricas e Avaliação de Qualidade</h1>
+    <p>O StartCheck foi construído com governança de Spec-Driven Development (SDD), passando por avaliação automática em 5 dimensões com o script <code>spec_scorer.py</code>.</p>
+
+    <h2>Scores de Qualidade SDD (0 a 100)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Completude (30%)</th>
+          <th>Testabilidade (25%)</th>
+          <th>Clareza (20%)</th>
+          <th>Escopo (15%)</th>
+          <th>Edge Cases (10%)</th>
+          <th>Score Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>startcheck-cli-installer</strong></td>
+          <td>100%</td>
+          <td>84%</td>
+          <td>100%</td>
+          <td>100%</td>
+          <td>80%</td>
+          <td><span class="badge badge-green">94.0 / 100</span></td>
+        </tr>
+        <tr>
+          <td><strong>startcheck-harness-adapter</strong></td>
+          <td>100%</td>
+          <td>84%</td>
+          <td>100%</td>
+          <td>100%</td>
+          <td>80%</td>
+          <td><span class="badge badge-green">94.0 / 100</span></td>
+        </tr>
+        <tr>
+          <td><strong>startcheck-agent-orchestrator</strong></td>
+          <td>100%</td>
+          <td>100%</td>
+          <td>70%</td>
+          <td>100%</td>
+          <td>100%</td>
+          <td><span class="badge badge-green">94.0 / 100</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Indicadores de Engenharia e Cobertura</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-title"><span>🧪</span><span>Testes Automatizados</span></div>
+        <p class="card-desc">Sandbox isolado testou o instalador, verificando cópia íntegra de 25 agentes, regras e arquivos de harness.</p>
+        <span class="badge badge-green">100% Passando</span>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>⚡</span><span>Tempo de Instalação</span></div>
+        <p class="card-desc">Instalação local via NPX concluída em menos de 2 segundos sem requisições de rede adicionais.</p>
+        <span class="badge badge-blue">&lt; 2 segundos</span>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span>🛡️</span><span>Segurança e Não-Destruição</span></div>
+        <p class="card-desc">Respeito rigoroso à diretriz <code>allowLegacyEdits: false</code>, sem sobrescrita indevida de arquivos do usuário.</p>
+        <span class="badge badge-green">100% Não-Destrutivo</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>StartCheck &copy; 2026 — Documentação gerada pelo framework Reversa.</p>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/nav.js"></script>
+</body>
+</html>

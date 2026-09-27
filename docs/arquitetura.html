@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitetura — StartCheck</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/img/seal-mini.svg" alt="StartCheck" width="24" height="24">
+      <span>StartCheck</span>
+      <span class="brand-badge">Arquitetura</span>
+    </a>
+    <nav class="reversa-doc-nav">
+      <a href="index.html">Visão Geral</a>
+      <a href="guia-passo-a-passo.html">Passo a Passo</a>
+      <a href="arquitetura.html" aria-current="page">Arquitetura</a>
+      <a href="modulos.html">Módulos & Agentes</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Arquitetura do Ecossistema StartCheck</h1>
+    <p>O StartCheck opera diretamente dentro do harness de inteligência artificial do desenvolvedor (Antigravity, Claude Code ou Gemini CLI), distribuído como um pacote executável em Node.js.</p>
+
+    <h2>Visão Geral da Camada de Execução</h2>
+    <pre><code>+-----------------------------------------------------------------------------------+
+|                            HARNESS DO DESENVOLVEDOR                              |
+|                   (Antigravity CLI/IDE, Claude Code, Gemini CLI)                  |
++-----------------------------------------------------------------------------------+
+                                         │
+                                         ▼
+                               /startcheck (Slash Command)
+                                         │
+                                         ▼
+                     .agents/skills/startcheck/SKILL.md
+                                         │
+         ┌───────────────────────────────┴───────────────────────────────┐
+         ▼                                                               ▼
++------------------------------------+        +------------------------------------+
+|       startcheck-startup-new       |        |       startcheck-startup-ceo       |
+|    (Intake & 6 Informações Base)    | ──────►|     (Orquestrador Executivo & QA)  |
++------------------------------------+        +------------------------------------+
+                                                                 │
+                                                                 ▼
+                 ┌───────────────────────────────────────────────────────────────┐
+                 │                      ESTEIRA EM 4 FASES                       │
+                 ├───────────────────────────────────────────────────────────────┤
+                 │ Fase 1: Fundação, Problema & Hipóteses (4 especialistas)      │
+                 │ Fase 2: Cliente, Persona & Mercado (3 especialistas)          │
+                 │ Fase 3: Operação, Viabilidade & Riscos (5 especialistas)      │
+                 │ Fase 4: Metas, Execução & Pitches (6 especialistas)           │
+                 └───────────────────────────────────────────────────────────────┘
+                                                 │
+                                                 ▼
+                              +------------------------------------+
+                              |    startcheck-executive-publisher  |
+                              |   (Dossiê Executivo em DOCX & PDF) |
+                              +------------------------------------+</code></pre>
+
+    <h2>Princípios Arquiteturais Inegociáveis</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Princípio</th>
+          <th>Descrição Técnica</th>
+          <th>Objetivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Preservação de Templates</strong></td>
+          <td>Agentes especialistas nunca alteram tabelas ou adicionam colunas.</td>
+          <td>Garantir formato padronizado e comparabilidade entre projetos.</td>
+        </tr>
+        <tr>
+          <td><strong>Zero Tags HTML</strong></td>
+          <td>Totalmente proibido o uso de <code>&lt;br&gt;</code>, <code>&lt;p&gt;</code> ou tags cruas.</td>
+          <td>Evitar poluição do Markdown e falhas na conversão para DOCX/PDF.</td>
+        </tr>
+        <tr>
+          <td><strong>Marcadores no Início</strong></td>
+          <td>🟢, 🟡 e 🔴 sempre posicionados no início da linha de valor ou célula.</td>
+          <td>Permitir parsing determinístico de status e integridade.</td>
+        </tr>
+        <tr>
+          <td><strong>Governança com Teto de 5 Iterações</strong></td>
+          <td>O CEO aplica feedbacks cirúrgicos e encerra no 5º ciclo com salvaguardas.</td>
+          <td>Evitar desperdício de tokens e lentidão no processo ágil.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>StartCheck &copy; 2026 — Documentação gerada pelo framework Reversa.</p>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/nav.js"></script>
+</body>
+</html>
