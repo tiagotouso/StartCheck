@@ -1,56 +1,32 @@
 {
   "name": "startcheck",
   "version": "1.0.0",
-  "description": "Sistema Inteligente de Modelagem de Startups baseado em Agentes, Skills e Harness",
-  "main": "dist/cli/index.js",
-  "types": "dist/cli/index.d.ts",
+  "description": "Framework de IA para documentação, validação e aceleração de startups em múltiplos harnesses (Antigravity, Claude Code, Gemini CLI).",
+  "main": "lib/installer.js",
   "bin": {
-    "startcheck": "bin/startcheck.js"
+    "startcheck": "./bin/startcheck.js"
   },
-  "files": [
-    "bin",
-    "dist",
-    "templates",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run build && npm test",
-    "start": "node bin/startcheck.js",
-    "test": "vitest run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tiagotouso/StartCheck.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tiagotouso/StartCheck/issues"
-  },
-  "homepage": "https://github.com/tiagotouso/StartCheck#readme",
   "keywords": [
     "startup",
-    "modelagem",
-    "canvas",
+    "ai-agents",
+    "antigravity",
+    "claude-code",
+    "gemini",
+    "accelerator",
     "pitch",
-    "agentes",
-    "skills",
-    "harness",
-    "docx",
-    "xlsx"
+    "lean-startup"
   ],
   "author": "Tiago",
   "license": "MIT",
-  "dependencies": {
-    "@clack/prompts": "^0.8.2",
-    "commander": "^12.1.0",
-    "docx": "^8.5.0",
-    "exceljs": "^4.4.0",
-    "picocolors": "^1.0.1"
+  "engines": {
+    "node": ">=18.0.0"
   },
-  "devDependencies": {
-    "@types/node": "^20.14.0",
-    "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+  "files": [
+    "bin",
+    "lib",
+    "assets"
+  ],
+  "scripts": {
+    "test": "node test/installer.test.js"
   }
 }

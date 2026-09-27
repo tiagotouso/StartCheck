@@ -1,27 +1,57 @@
 #!/usr/bin/env node
 
-const path = require("path");
-const fs = require("fs");
+/**
+ * StartCheck CLI - Entrypoint
+ * Executável via `npx startcheck install` ou `startcheck install`
+ */
 
-const distCliPath = path.join(__dirname, "../dist/cli/index.js");
+const { installStartCheck } = require('../lib/installer');
 
-if (fs.existsSync(distCliPath)) {
-  const { runCli } = require(distCliPath);
-  runCli().catch((err) => {
-    console.error("Erro fatal na execução do StartCheck:", err);
-    process.exit(1);
-  });
-} else {
-  // Fallback para execução direta em TypeScript se ts-node estiver disponível
-  try {
-    require("ts-node/register");
-    const { runCli } = require("../src/cli/index.ts");
-    runCli().catch((err) => {
-      console.error("Erro fatal na execução do StartCheck:", err);
-      process.exit(1);
-    });
-  } catch (tsErr) {
-    console.error("Execute 'npm run build' antes de iniciar o StartCheck.");
-    process.exit(1);
+const args = process.argv.slice(2);
+const command = args[0] || 'help';
+
+async function main() {
+  const targetDir = process.cwd();
+
+  switch (command.toLowerCase()) {
+    case 'install':
+    case 'init':
+    case 'setup':
+      await installStartCheck(targetDir);
+      break;
+
+    case 'version':
+    case '-v':
+    case '--version':
+      const pkg = require('../package.json');
+      console.log(`StartCheck v${pkg.version}`);
+      break;
+
+    case 'help':
+    case '-h':
+    case '--help':
+    default:
+      console.log(`
+============================================================
+                    🚀 StartCheck CLI
+============================================================
+
+Uso:
+  npx startcheck install       Instala os agentes e regras no projeto atual
+  npx startcheck version       Exibe a versão instalada
+  npx startcheck help          Exibe esta ajuda
+
+Após a instalação, abra o seu harness de IA favorito:
+  - Antigravity: digite /startcheck
+  - Claude Code: digite /startcheck
+  - Gemini CLI:  digite /startcheck
+============================================================
+      `);
+      break;
   }
 }
+
+main().catch((err) => {
+  console.error('\n❌ Erro durante a execução do StartCheck:', err.message);
+  process.exit(1);
+});
