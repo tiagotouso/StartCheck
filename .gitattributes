@@ -1,0 +1,17 @@
+# Normalização de quebras de linha entre Windows e Linux/macOS
+* text=auto eol=lf
+
+# Arquivos que devem manter CRLF no Windows se necessário
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.pdf binary
+*.docx binary

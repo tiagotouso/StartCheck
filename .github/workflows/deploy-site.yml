@@ -1,0 +1,32 @@
+name: Deploy Documentação para Branch Site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'page_docs/**'
+      - '.github/workflows/deploy-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Publicar page_docs na Branch site
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: site
+          publish_dir: ./page_docs
+          force_orphan: false
+          keep_files: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'docs: deploy automático da documentação a partir de page_docs [skip ci]'

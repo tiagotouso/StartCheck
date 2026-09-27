@@ -26,7 +26,13 @@
     "lib",
     "assets"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tiagotouso/StartCheck.git"
+  },
+  "homepage": "https://tiagotouso.github.io/StartCheck/",
   "scripts": {
-    "test": "node test/installer.test.js"
+    "test": "node test/installer.test.js",
+    "deploy:site": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-site.ps1"
   }
 }
