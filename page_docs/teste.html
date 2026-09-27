@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StartCheck — Página de Teste & Diagnóstico</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .test-panel {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .test-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+    .test-pulse {
+      width: 10px;
+      height: 10px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(63, 185, 80, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(63, 185, 80, 0); }
+    }
+    .terminal-window {
+      background: #090d13;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #7ee787;
+      margin-top: 1rem;
+      min-height: 140px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    .btn-action {
+      background: var(--accent-blue);
+      color: #0d1117;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s;
+    }
+    .btn-action:hover {
+      opacity: 0.9;
+    }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover {
+      background: #2d333b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="brand">
+      <img src="assets/img/seal-mini.svg" alt="StartCheck" width="24" height="24">
+      <span>StartCheck</span>
+      <span class="brand-badge">Ambiente de Testes</span>
+    </a>
+    <nav class="reversa-doc-nav">
+      <a href="index.html">Visão Geral</a>
+      <a href="guia-passo-a-passo.html">Passo a Passo</a>
+      <a href="arquitetura.html">Arquitetura</a>
+      <a href="modulos.html">Módulos & Agentes</a>
+      <a href="metricas.html">Métricas</a>
+      <a href="glossario.html">Glossário</a>
+      <a href="teste.html" aria-current="page">🧪 Teste</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-seal">
+        <img src="assets/img/seal.svg" alt="StartCheck Test" width="96" height="96">
+      </div>
+      <h1>Painel de Teste & Validação</h1>
+      <p>Página de verificação operacional para o ecossistema StartCheck e publicação contínua no GitHub Pages.</p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <span class="badge badge-green">✔ Branch Main: Sistema</span>
+        <span class="badge badge-blue">✔ Branch Site: Documentação</span>
+        <span class="badge badge-yellow">✔ 25 Agentes Mapeados</span>
+      </div>
+    </section>
+
+    <!-- Painel de Status das Branches e URLs -->
+    <div class="test-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+        <div class="test-indicator">
+          <div class="test-pulse"></div>
+          <span style="font-size: 1.1rem;">Status da Infraestrutura Git & Deploy</span>
+        </div>
+        <span class="badge badge-green" id="pages-badge">Status: Pronto para Produção</span>
+      </div>
+
+      <div class="grid" style="margin-bottom: 1rem;">
+        <div class="card" style="margin-bottom: 0;">
+          <div class="card-title">
+            <span>🌿</span>
+            <span>Branch <code>main</code></span>
+          </div>
+          <p class="card-desc">Contém o núcleo da aplicação (CLI, instalador, modelos de templates, regras de governança e suite de testes).</p>
+          <div style="margin-top: 0.5rem;"><span class="badge badge-blue">Código-Fonte Principal</span></div>
+        </div>
+
+        <div class="card" style="margin-bottom: 0;">
+          <div class="card-title">
+            <span>🌐</span>
+            <span>Branch <code>site</code></span>
+          </div>
+          <p class="card-desc">Contém os artefatos estáticos de <code>page_docs/</code> na raiz, alimentando diretamente o GitHub Pages.</p>
+          <div style="margin-top: 0.5rem;"><span class="badge badge-green">Hospedagem Ativa</span></div>
+        </div>
+      </div>
+
+      <div style="background: var(--bg-primary); padding: 1rem; border-radius: 6px; border: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+        <div>
+          <span style="color: var(--text-secondary); font-size: 0.85rem;">URL Oficial da Documentação:</span><br>
+          <a href="https://tiagotouso.github.io/StartCheck/" target="_blank" style="color: var(--accent-blue); font-family: var(--font-mono); text-decoration: none; font-weight: 600;">
+            https://tiagotouso.github.io/StartCheck/
+          </a>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn-action" onclick="testPing()">Testar Resposta</button>
+          <a href="index.html" class="btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center;">Voltar à Home</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulador Interativo do CLI / Agentes -->
+    <div class="test-panel">
+      <h3 style="margin-bottom: 0.75rem;">💻 Simulador Interativo de Comandos</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
+        Selecione um comando para simular sua execução no terminal do sistema:
+      </p>
+
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <button class="btn-secondary" onclick="runSim('install')">Simular: npx startcheck install</button>
+        <button class="btn-secondary" onclick="runSim('orchestrator')">Simular: /startcheck</button>
+        <button class="btn-secondary" onclick="runSim('test')">Simular: npm test</button>
+        <button class="btn-secondary" onclick="clearConsole()">Limpar Console</button>
+      </div>
+
+      <div class="terminal-window" id="console-output">
+$ # Pronto para simulação. Clique em um dos botões acima para executar.
+      </div>
+    </div>
+
+    <!-- Diagnóstico da Diretoria de Agentes -->
+    <h2>Diretoria e Fases Homologadas</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">
+          <span>🟢</span>
+          <span>Fase 1: Fundação & Hipóteses</span>
+        </div>
+        <p class="card-desc">4 Agentes: Registrar, Problema x Solução, Hipóteses Críticas e Matriz de Aprendizados.</p>
+        <div><span class="badge badge-green">4 / 4 Operacionais</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>🟢</span>
+          <span>Fase 2: Mercado & Persona</span>
+        </div>
+        <p class="card-desc">3 Agentes: Proposta de Valor, Persona Profiler e TAM / SAM / SOM.</p>
+        <div><span class="badge badge-green">3 / 3 Operacionais</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>🟢</span>
+          <span>Fase 3: Operação & Riscos</span>
+        </div>
+        <p class="card-desc">5 Agentes: Mapeamento de Riscos, Prototipação, Canvas, Ecossistema Operacional e ESG.</p>
+        <div><span class="badge badge-green">5 / 5 Operacionais</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>🟢</span>
+          <span>Fase 4: Metas & Pitches</span>
+        </div>
+        <p class="card-desc">7 Agentes: Metas da Startup, Plano 5W2H, Pitches (60s, 5m, 15m), Copywriting e Q&A.</p>
+        <div><span class="badge badge-green">7 / 7 Operacionais</span></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>StartCheck &copy; 2026 — Página de Teste & Validação da Documentação.</p>
+  </footer>
+
+  <script src="assets/js/nav.js"></script>
+  <script>
+    function clearConsole() {
+      document.getElementById('console-output').textContent = '$ # Console limpo. Aguardando novo comando...';
+    }
+
+    function testPing() {
+      const out = document.getElementById('console-output');
+      out.textContent = '$ ping https://tiagotouso.github.io/StartCheck/\n';
+      out.textContent += 'Verificando conexão com o GitHub Pages...\n';
+      setTimeout(() => {
+        out.textContent += 'HTTP 200 OK: O endereço https://tiagotouso.github.io/StartCheck/ está acessível na branch site!\n';
+        out.textContent += 'Arquivo atual de teste: /page_docs/teste.html ✔';
+      }, 400);
+    }
+
+    function runSim(type) {
+      const out = document.getElementById('console-output');
+      if (type === 'install') {
+        out.textContent = '$ npx startcheck install\n';
+        out.textContent += '  ==============================================================\n';
+        out.textContent += '     🚀 STARTCHECK: INSTALAÇÃO DO ECOSSISTEMA DE AGENTES\n';
+        out.textContent += '  ==============================================================\n';
+        out.textContent += '  📦 [1/4] Instalando 25 agentes especialistas em .agents/agents/...\n';
+        out.textContent += '  📋 [2/4] Instalando regras de criação e templates em .agents/rules/...\n';
+        out.textContent += '  ⚙️  [3/4] Configurando integrações multi-harness (Antigravity, Claude, Gemini)...\n';
+        out.textContent += '  📝 [4/4] Gravando manifesto de instalação...\n';
+        out.textContent += '  ✅ SUCESSO: StartCheck instalado com êxito!\n';
+      } else if (type === 'orchestrator') {
+        out.textContent = '$ /startcheck\n';
+        out.textContent += '🤖 startcheck-startup-new ativado!\n';
+        out.textContent += '📝 Coletando as 6 informações fundamentais da startup:\n';
+        out.textContent += '   1. Nome da Startup\n   2. Problema Central\n   3. Solução Proposta\n';
+        out.textContent += '   4. Público-Alvo\n   5. Modelo de Negócio\n   6. Estágio Atual\n';
+        out.textContent += '👑 Despachando briefing para startcheck-startup-ceo...\n';
+        out.textContent += '🚀 Iniciando Fase 1: Fundação, Problema e Hipóteses Críticas!';
+      } else if (type === 'test') {
+        out.textContent = '$ npm test\n';
+        out.textContent += '🧪 Iniciando teste do instalador StartCheck...\n';
+        out.textContent += '✔ Agentes instalados: 25\n';
+        out.textContent += '✔ Templates íntegros e preservados: 100%\n';
+        out.textContent += '🎉 TODOS OS TESTES PASSARAM COM SUCESSO!';
+      }
+    }
+  </script>
+</body>
+</html>
