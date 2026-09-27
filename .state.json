@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-09-27T19:07:00Z",
+  "lastCheckpoint": "2026-09-27T19:09:40Z",
+  "pipelineDurationMs": 160000,
+  "completedAgents": [
+    "mapper",
+    "analyst",
+    "storyteller",
+    "publisher"
+  ],
+  "pendingAgents": [],
+  "pages": {
+    "index.html": { "status": "created", "agent": "reversa-docs-publisher" },
+    "guia-passo-a-passo.html": { "status": "created", "agent": "reversa-docs-storyteller" },
+    "arquitetura.html": { "status": "created", "agent": "reversa-docs-mapper" },
+    "modulos.html": { "status": "created", "agent": "reversa-docs-mapper" },
+    "metricas.html": { "status": "created", "agent": "reversa-docs-analyst" },
+    "glossario.html": { "status": "created", "agent": "reversa-docs-storyteller" },
+    "features/startcheck-cli-installer.html": { "status": "created", "agent": "reversa-docs-storyteller" },
+    "features/startcheck-harness-adapter.html": { "status": "created", "agent": "reversa-docs-storyteller" },
+    "features/startcheck-agent-orchestrator.html": { "status": "created", "agent": "reversa-docs-storyteller" }
+  },
+  "pagesGenerated": [
+    "index.html",
+    "guia-passo-a-passo.html",
+    "arquitetura.html",
+    "modulos.html",
+    "metricas.html",
+    "glossario.html",
+    "features/startcheck-cli-installer.html",
+    "features/startcheck-harness-adapter.html",
+    "features/startcheck-agent-orchestrator.html"
+  ],
+  "pagesOmitted": [
+    {
+      "page": "topologia.html",
+      "reason": "Sem dump de topologia de runtime"
+    },
+    {
+      "page": "timeline.html",
+      "reason": "Sem chronicle.md de histórico de commits legados"
+    }
+  ],
+  "auxiliaryHtmlsDiscovered": 0,
+  "auxiliaryDiscoveryAborted": false,
+  "cdnFallbackUsed": false,
+  "cdnFallbackDetails": [],
+  "vendorMissing": [],
+  "smokeTestFailed": false,
+  "smokeTestErrors": [],
+  "brokenLinks": []
+}

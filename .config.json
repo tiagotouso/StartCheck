@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-27T19:07:00Z",
+  "reversa": {
+    "version": "1.3.4"
+  },
+  "projectName": "StartCheck",
+  "interview": {
+    "readerProfile": "novo_dev",
+    "depth": "full",
+    "visualStyle": "sober"
+  },
+  "seed": {
+    "hash": "sha256:7d345107ad395f4f787b75779c5cb7836afbdf3117f86474f04cb510ef2364ac",
+    "source": "project_name",
+    "explicitOverride": null
+  },
+  "knowledgeSources": {
+    "soul": false,
+    "chronicle": false,
+    "topology": false,
+    "sddSpecs": [
+      "startcheck-cli-installer",
+      "startcheck-harness-adapter",
+      "startcheck-agent-orchestrator"
+    ],
+    "sourceCode": true
+  },
+  "pagesPlanned": [
+    "index.html",
+    "guia-passo-a-passo.html",
+    "arquitetura.html",
+    "modulos.html",
+    "metricas.html",
+    "glossario.html",
+    "features/startcheck-cli-installer.html",
+    "features/startcheck-harness-adapter.html",
+    "features/startcheck-agent-orchestrator.html"
+  ],
+  "pagesOmitted": [
+    {
+      "page": "topologia.html",
+      "reason": "Sem dump de topologia de runtime"
+    },
+    {
+      "page": "timeline.html",
+      "reason": "Sem chronicle.md de histórico de commits legados"
+    }
+  ]
+}

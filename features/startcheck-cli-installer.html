@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spec: CLI Installer — StartCheck</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="brand">
+      <img src="../assets/img/seal-mini.svg" alt="StartCheck" width="24" height="24">
+      <span>StartCheck</span>
+      <span class="brand-badge">Spec SDD</span>
+    </a>
+    <nav class="reversa-doc-nav">
+      <a href="../index.html">Visão Geral</a>
+      <a href="../guia-passo-a-passo.html">Passo a Passo</a>
+      <a href="../arquitetura.html">Arquitetura</a>
+      <a href="../modulos.html">Módulos & Agentes</a>
+      <a href="../metricas.html">Métricas</a>
+      <a href="../glossario.html">Glossário</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 1rem;">
+      <a href="../index.html" style="color: var(--accent-blue); text-decoration: none;">&larr; Voltar para a Visão Geral</a>
+    </div>
+
+    <h1>startcheck-cli-installer</h1>
+    <p>Pacote de linha de comando Node.js distribuível via NPX ou GitHub para automação da instalação do ecossistema de agentes.</p>
+
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+      <span class="badge badge-green">Score 94.0 / 100</span>
+      <span class="badge badge-blue">RFC Pragmático</span>
+      <span class="badge badge-yellow">Status: Implementado</span>
+    </div>
+
+    <h2>Requisitos Funcionais Principais</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Requisito</th>
+          <th>Prioridade</th>
+          <th>Critério de Aceite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RF-01</td>
+          <td>Fornecer ponto de entrada executável via <code>npx startcheck install</code>.</td>
+          <td>Must</td>
+          <td>Comando executa e retorna exit code 0.</td>
+        </tr>
+        <tr>
+          <td>RF-02</td>
+          <td>Copiar integralmente os 25 agentes e templates para <code>.agents/agents/</code>.</td>
+          <td>Must</td>
+          <td>Verificação de existência de todos os arquivos.</td>
+        </tr>
+        <tr>
+          <td>RF-03</td>
+          <td>Gerar e sincronizar regras em AGENTS.md, CLAUDE.md e GEMINI.md.</td>
+          <td>Must</td>
+          <td>Arquivos configurados com a chamada <code>/startcheck</code>.</td>
+        </tr>
+        <tr>
+          <td>RF-04</td>
+          <td>Operação não-destrutiva com proteção contra sobrescrita indevida.</td>
+          <td>Must</td>
+          <td>Falha segura e preservação de arquivos existentes.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Como Testar</h2>
+    <pre><code># Executando no diretório do projeto:
+node "_reversa_forward/001-startcheck-core/package/bin/startcheck.js" install
+
+# Executando os testes unitários em sandbox:
+node "_reversa_forward/001-startcheck-core/package/test/installer.test.js"</code></pre>
+  </main>
+
+  <footer>
+    <p>StartCheck &copy; 2026 — Documentação gerada pelo framework Reversa.</p>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>

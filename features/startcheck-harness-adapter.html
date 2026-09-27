@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spec: Harness Adapter — StartCheck</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="brand">
+      <img src="../assets/img/seal-mini.svg" alt="StartCheck" width="24" height="24">
+      <span>StartCheck</span>
+      <span class="brand-badge">Spec SDD</span>
+    </a>
+    <nav class="reversa-doc-nav">
+      <a href="../index.html">Visão Geral</a>
+      <a href="../guia-passo-a-passo.html">Passo a Passo</a>
+      <a href="../arquitetura.html">Arquitetura</a>
+      <a href="../modulos.html">Módulos & Agentes</a>
+      <a href="../metricas.html">Métricas</a>
+      <a href="../glossario.html">Glossário</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="margin-bottom: 1rem;">
+      <a href="../index.html" style="color: var(--accent-blue); text-decoration: none;">&larr; Voltar para a Visão Geral</a>
+    </div>
+
+    <h1>startcheck-harness-adapter</h1>
+    <p>Camada de interoperabilidade multi-harness responsável por injetar comandos e diretrizes de IA para Antigravity, Claude Code e Gemini CLI.</p>
+
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+      <span class="badge badge-green">Score 94.0 / 100</span>
+      <span class="badge badge-blue">RFC Pragmático</span>
+      <span class="badge badge-yellow">Status: Implementado</span>
+    </div>
+
+    <h2>Requisitos Funcionais Principais</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Requisito</th>
+          <th>Prioridade</th>
+          <th>Critério de Aceite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RF-01</td>
+          <td>Gerar <code>AGENTS.md</code> com a declaração do comando <code>/startcheck</code>.</td>
+          <td>Must</td>
+          <td>Arquivo presente na raiz do workspace do usuário.</td>
+        </tr>
+        <tr>
+          <td>RF-02</td>
+          <td>Gerar <code>CLAUDE.md</code> e <code>GEMINI.md</code> sincronizados com as mesmas regras.</td>
+          <td>Must</td>
+          <td>Ambos arquivos configurados de forma não destrutiva.</td>
+        </tr>
+        <tr>
+          <td>RF-03</td>
+          <td>Registrar a skill <code>startcheck</code> com metadados de execução.</td>
+          <td>Must</td>
+          <td>Presença de <code>.agents/skills/startcheck/SKILL.md</code>.</td>
+        </tr>
+        <tr>
+          <td>RF-04</td>
+          <td>Injetar regras de integridade de templates e marcadores de status.</td>
+          <td>Must</td>
+          <td>Instruções explícitas contra tags HTML e alteração de colunas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>StartCheck &copy; 2026 — Documentação gerada pelo framework Reversa.</p>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/nav.js"></script>
+</body>
+</html>
