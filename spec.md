@@ -1,4 +1,4 @@
-# Especificação Técnica: Criação de Agent Skills
+# xEspecificação Técnica: Criação de Agent Skills
 
 > **Referência Canônica**: Baseado na arquitetura e anatomia do skill [`reversa-arbiter`](file:///D:/_Sistema_Operacional_/Área%20de%20Trabalho/Nova%20pasta/.agents/skills/reversa-arbiter/SKILL.md) e nos padrões modernos de Agent Skills (Antigravity, Claude Code, Cursor, Codex, Gemini CLI).
 
@@ -9,6 +9,7 @@
 Uma **Agent Skill** é um módulo declarativo e auto-contido de instruções, metadados, templates e recursos auxiliares que capacita agentes de IA a executar fluxos de trabalho especializados, previsíveis e com forte controle de qualidade.
 
 ### Princípios Extraídos do `reversa-arbiter`:
+
 1. **Identidade Estrita e Foco Único (Single Responsibility)**: Cada skill tem um papel bem delimitado dentro de uma equipe ou pipeline.
 2. **Human-in-the-Loop (HITL) Obrigatório**: O agente recomenda e estrutura; a decisão final é humana. O agente nunca toma decisões irreversíveis sozinho.
 3. **Guardrails de Entrada Determinísticos**: Se as pré-condições (arquivos de estado, artefatos anteriores) não existirem, o agente encerra imediatamente com instruções claras de recuperação.
@@ -59,6 +60,7 @@ metadata:
 ```
 
 #### Definição dos Campos:
+
 * **`name`** *(string, obrigatório)*: Identificador único em minúsculas e hífen (ex.: `reversa-arbiter`).
 * **`description`** *(string, obrigatório)*: Usado pelo orquestrador para roteamento por *progressive disclosure*. Deve conter:
   - Papel do agente.
@@ -76,11 +78,14 @@ metadata:
 Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as seguintes seções estruturadas:
 
 #### Seção I: Declaração de Identidade e Missão
+
 - **Objetivo**: Fixar persona, propósito e fronteira ética/operacional.
 - **Padrão**:
+  
   > *"Você é o [Nome do Agente], [número/etapa] agente do [Time]. Sua missão é [verbo de ação]. Você recomenda, o usuário decide. A recomendação nunca vira decisão sozinha."*
 
 #### Seção II: Antes de Começar (Pré-condições e Guardrails)
+
 - **Objetivo**: Garantir que todas as entradas existam antes de qualquer processamento.
 - **Regras**:
   1. Leitura de arquivos de estado global (ex.: `.reversa/state.json`, `.reversa/active-ideation.json`).
@@ -88,6 +93,7 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   3. Mensagem de saída orientada à ação se faltar dependência (ex.: *"Não encontrei `risks.md`. Rode `/reversa-challenger` primeiro."*).
 
 #### Seção III: Critérios e Regras Normativas
+
 - **Objetivo**: Remover a arbitrariedade da IA, estabelecendo métricas transparentes.
 - **Estrutura**:
   - Tabela com critérios objetivos e escalas bem definidas (ex.: escala 1 a 5, onde 5 = melhor/mais barato).
@@ -95,6 +101,7 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   - Regra de cálculo e empates: como somar e como tratar empates de forma neutra.
 
 #### Seção IV: Protocolo de Recomendação
+
 - **Objetivo**: Expor o raciocínio e os trade-offs de forma explícita e corajosa.
 - **Itens obrigatórios**:
   1. Opção vencedora e pontuação.
@@ -104,6 +111,7 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   5. Validação de opções nulas (ex.: *"Se a opção 'não construir' vencer, declare isso claramente"*).
 
 #### Seção V: Protocolo de Interação Humana (HITL)
+
 - **Objetivo**: Dar controle determinístico ao operador humano.
 - **Elementos**:
   - Menu numérico padronizado com opções claras de aceite, rejeição, desvio e retorno ao estágio anterior.
@@ -112,6 +120,7 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   - Registro transparente de divergências humanas (não forçar concordância).
 
 #### Seção VI: Template do Artefato (Markdown Schema)
+
 - **Objetivo**: Padronizar a saída física com marcadores semânticos de auditoria.
 - **Elementos do Template**:
   - Cabeçalho padronizado com selo de estado (ex.: `> Selo 🟡 PLANEJADO`).
@@ -120,6 +129,7 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   - Rodapé com trilha de auditoria: data ISO 8601, agente gerador e ID da sessão.
 
 #### Seção VII: Persistência e Transição de Estado
+
 - **Objetivo**: Garantir integridade no disco e sincronia do pipeline.
 - **Regras**:
   - Especificação de charset: UTF-8 sem BOM.
@@ -128,18 +138,22 @@ Seguindo o padrão do `reversa-arbiter`, o corpo do arquivo deve conter as segui
   - Atualização do estágio no arquivo de controle (ex.: alterar `current-stage` para a próxima etapa).
 
 #### Seção VIII: Relatório Final e Handoff
+
 - **Objetivo**: Fechar o ciclo com sumário no chat e instrução do próximo passo.
 - **Estrutura**:
   1. Caminho absoluto do arquivo criado.
   2. Resumo da decisão tomada e divergências.
   3. Teste prioritário a ser executado.
   4. Call-to-Action com palavra-chave de controle:
+     
      > *"Digite **CONTINUAR** para prosseguir com `/<proximo-agente>`..."*
   5. Regra anti-autonomia não autorizada: *"Nunca prossiga automaticamente."*
 
 #### Seção IX: Regra Absoluta (Sandboxing)
+
 - **Objetivo**: Evitar efeitos colaterais catastróficos no repositório.
 - **Exemplo**:
+  
   > *"Escreva apenas em `<session-dir>/<arquivo.md>` e no `current-stage` do arquivo de estado. Nunca toque em outro arquivo do projeto. Nunca produza código."*
 
 ---
@@ -162,23 +176,23 @@ policy:
 
 ## 5. Diretórios Opcionais (`references/`, `scripts/`, `assets/`)
 
-| Diretório | Finalidade | Boas Práticas |
-|---|---|---|
-| `references/` | Manuais de conformidade, dicionários de dados, RFCs e regras longas. | Referenciar via links relativos (`[manual](references/regras.md)`). Não despejar no `SKILL.md`. |
-| `scripts/` | Utilitários de verificação, scripts de build, migração de esquema, testes de fumaça. | Criar scripts parametrizados e idempotentes com verificação de erros. |
-| `assets/` | Templates de relatório, mockups SVG, esquemas JSON Schema. | Manter arquivos desacoplados e fáceis de versionar. |
+| Diretório     | Finalidade                                                                           | Boas Práticas                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `references/` | Manuais de conformidade, dicionários de dados, RFCs e regras longas.                 | Referenciar via links relativos (`[manual](references/regras.md)`). Não despejar no `SKILL.md`. |
+| `scripts/`    | Utilitários de verificação, scripts de build, migração de esquema, testes de fumaça. | Criar scripts parametrizados e idempotentes com verificação de erros.                           |
+| `assets/`     | Templates de relatório, mockups SVG, esquemas JSON Schema.                           | Manter arquivos desacoplados e fáceis de versionar.                                             |
 
 ---
 
 ## 6. Matriz de Qualidade para Criação de Skills
 
-| Dimensão | O que verificar | Falha Comum (Anti-Pattern) |
-|---|---|---|
-| **Determinismo de Entrada** | O skill checa arquivos de entrada antes de começar? | O agente tenta adivinhar o contexto sem os arquivos necessários. |
-| **Soberania Humana** | O skill pede confirmação explícita antes de persistir? | O agente escreve o artefato antes do usuário validar. |
-| **Isolamento de Efeitos** | O skill tem sua "Regra Absoluta" limitando onde pode gravar? | O agente altera arquivos alheios ou cria código indevido. |
-| **Transparência de Divergência** | Se o usuário discordar, o agente acata sem adulterar métricas? | O agente altera o placar técnico para agradar o usuário. |
-| **Continuidade de Pipeline** | O skill orienta claramente como chamar o próximo estágio? | O agente encerra com "concluído" sem apontar para onde ir. |
+| Dimensão                         | O que verificar                                                | Falha Comum (Anti-Pattern)                                       |
+| -------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Determinismo de Entrada**      | O skill checa arquivos de entrada antes de começar?            | O agente tenta adivinhar o contexto sem os arquivos necessários. |
+| **Soberania Humana**             | O skill pede confirmação explícita antes de persistir?         | O agente escreve o artefato antes do usuário validar.            |
+| **Isolamento de Efeitos**        | O skill tem sua "Regra Absoluta" limitando onde pode gravar?   | O agente altera arquivos alheios ou cria código indevido.        |
+| **Transparência de Divergência** | Se o usuário discordar, o agente acata sem adulterar métricas? | O agente altera o placar técnico para agradar o usuário.         |
+| **Continuidade de Pipeline**     | O skill orienta claramente como chamar o próximo estágio?      | O agente encerra com "concluído" sem apontar para onde ir.       |
 
 ---
 
@@ -219,10 +233,12 @@ Você é o [Nome], agente responsável por [Missão clara em 1-2 linhas].
 Apresente as opções estruturadas:
 
 ```
+
 [1] Aprovar recomendação
 [2] Ajustar parâmetros
 [3] Cancelar e voltar para /etapa-anterior
 [4] Outro (descreva)
+
 ```
 
 Aguarde a resposta. **Nunca prossiga sem a escolha do usuário.**
@@ -256,14 +272,19 @@ Gerado por meu-novo-skill em <ISO 8601>
 ## Relatório Final
 
 Informe:
+
 1. Caminho absoluto do artefato gerado.
 2. Resumo da decisão.
 3. Próximo passo recomendado.
 
 Finalize com:
+
 > Digite **CONTINUAR** para prosseguir com `/proximo-skill`.
 
 ## Regra Absoluta
 
 Escreva única e exclusivamente em `<contexto>/saida.md` e no status de `.estado/config.json`. Nunca modifique outros arquivos do projeto.
+
+```
+
 ```
